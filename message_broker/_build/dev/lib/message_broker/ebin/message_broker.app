@@ -1,0 +1,10 @@
+{application,message_broker,
+             [{applications,[kernel,stdlib,elixir,logger]},
+              {description,"message_broker"},
+              {modules,['Elixir.KVServer','Elixir.MessageBroker',
+                        'Elixir.TcpConnectionSupervisor',
+                        'Elixir.TcpConnectionWorker','Elixir.TcpServer',
+                        'Elixir.TopicRouter']},
+              {registered,[]},
+              {vsn,"0.1.0"},
+              {mod,{'Elixir.MessageBroker',[]}}]}.
