@@ -8,7 +8,15 @@ defmodule MessageBroker do
 
     children = [
       {Task.Supervisor, name: KVServer.TaskSupervisor},
-      Supervisor.child_spec({Task, fn -> KVServer.accept(port) end}, restart: :permanent)
+      Supervisor.child_spec({Task, fn -> KVServer.accept(port) end}, restart: :permanent),
+      %{
+        id: TopicSupervisor,
+        start: {TopicSupervisor, :start_link, []}
+      },
+      %{
+        id: TopicRouter,
+        start: {TopicRouter, :start_link, []}
+      }
     ]
 
     opts = [strategy: :one_for_one, max_restarts: 100, name: __MODULE__]

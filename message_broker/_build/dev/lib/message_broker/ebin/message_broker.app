@@ -1,10 +1,11 @@
 {application,message_broker,
-             [{applications,[kernel,stdlib,elixir,logger]},
+             [{applications,[kernel,stdlib,elixir,logger,poison]},
               {description,"message_broker"},
               {modules,['Elixir.KVServer','Elixir.MessageBroker',
                         'Elixir.TcpConnectionSupervisor',
                         'Elixir.TcpConnectionWorker','Elixir.TcpServer',
-                        'Elixir.TopicRouter']},
+                        'Elixir.TopicRouter','Elixir.TopicSupervisor',
+                        'Elixir.TopicWorker']},
               {registered,[]},
               {vsn,"0.1.0"},
               {mod,{'Elixir.MessageBroker',[]}}]}.
